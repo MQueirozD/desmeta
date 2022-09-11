@@ -24,11 +24,11 @@ function SalesCard() {
         const dmin = minDate.toISOString().slice(0, 10);
         const dmax = maxDate.toISOString().slice(0, 10);
 
-        axios.get(`${BASE_URL}/sales?minDate=${dmin}&maxDate=${dmax}`)
-            .then(response => {
+        axios.get(`${BASE_URL}/sales?minDate=${dmin}&maxDate=${dmax}`)//pega a data minima e a maxima (min 1 ano antes)
+            .then(response => {//mostra a data de hj 
                 setSales(response.data.content);
             });
-    }, [minDate, maxDate]);
+    }, [minDate, maxDate]);//altera toda vez que mudar a data no calendario
 
 
     return (
